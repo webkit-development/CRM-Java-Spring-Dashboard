@@ -91,5 +91,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/c3p0-0.9.5.5.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/hibernate-c3p0-5.6.5.Final.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mchange-commons-java-0.2.19.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-1.2.6.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-1.2.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

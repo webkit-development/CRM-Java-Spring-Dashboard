@@ -22,7 +22,7 @@ public class User {
 	private String email;
 	@Column(name="password")
 	private String password;
-	@Column(name="created_time")
+	@Column(name="create_time")
 	private Date createdTime;
 	
 	public User() {}

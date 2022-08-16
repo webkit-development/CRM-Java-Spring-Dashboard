@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -197,14 +199,9 @@
           <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
             <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
           </div>
-          <div class="docs-info">
-            <h6 class="text-white up mb-0">Need help?</h6>
-            <p class="text-xs font-weight-bold">Please check our docs</p>
-            <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
-          </div>
+          
         </div>
       </div>
-      <a class="btn bg-gradient-primary mt-3 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree">Upgrade to pro</a>
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -328,53 +325,189 @@
     </nav>
     
     
-    
-    
+   
+   <div class="container">
+   <div class="row">
+    <div class="col-md-12 mt-5 mb-5">
     <div class="card">
   <div class="table-responsive">
     <table class="table align-items-center mb-0">
       <thead>
         <tr>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Technology</th>
-          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Username</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Company</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
           <th class="text-secondary opacity-7"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        
+        
+        <c:forEach var="customer" items="${customers}">
+        
+        
+        
+        <tr class="text-center">
           <td>
             <div class="d-flex px-2 py-1">
-              <div>
-                <img src="https://demos.creative-tim.com/soft-ui-design-system-pro/assets/img/team-2.jpg" class="avatar avatar-sm me-3">
-              </div>
               <div class="d-flex flex-column justify-content-center">
-                <h6 class="mb-0 text-xs">John Michael</h6>
-                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                <h6 class="mb-0 text-xs"> ${customer.name} </h6>
               </div>
             </div>
           </td>
+          
           <td>
-            <p class="text-xs font-weight-bold mb-0">Manager</p>
-            <p class="text-xs text-secondary mb-0">Organization</p>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${customer.username} </h6>
+              </div>
+            </div>
           </td>
-          <td class="align-middle text-center text-sm">
-            <span class="badge badge-sm badge-success">Online</span>
+          
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${customer.email} </h6>
+              </div>
+            </div>
           </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+          
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${customer.phoneNumber} </h6>
+              </div>
+            </div>
           </td>
+          
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${customer.company} </h6>
+              </div>
+            </div>
+          </td>
+          
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${customer.title} </h6>
+              </div>
+            </div>
+          </td>
+        
           <td class="align-middle">
             <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
               Edit
             </a>
-          </td>
+            
+            |
+            
+            <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+              Delete
+            </a>
+          </td> 
         </tr>
+        
+        
+        
+        </c:forEach>
+        
+        
         </tbody>
     </table>
 </div>
 </div>    
+
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 mt-5 mb-5">
+
+
+  <div class="card">
+  <div class="table-responsive">
+    <table class="table align-items-center mb-0">
+      <thead>
+        <tr>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Password</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Start Date</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+          <th class="text-secondary opacity-7"></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        
+        <c:forEach var="user" items="${users}">
+        
+        <tr class="text-center">
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${user.username} </h6>
+              </div>
+            </div>
+          </td>
+          
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${user.email} </h6>
+              </div>
+            </div>
+          </td>
+          
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${user.password} </h6>
+              </div>
+            </div>
+          </td>
+          
+          <td>
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="mb-0 text-xs"> ${user.createdTime} </h6>
+              </div>
+            </div>
+          </td>
+        
+          <td class="align-middle">
+            <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+              Edit
+            </a>
+            
+            |
+            
+            <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+              Delete
+            </a>
+          </td>
+        </tr>
+        
+        
+        </c:forEach>
+        
+        
+        </tbody>
+    </table>
+</div>
+</div> 
+</div>  
+
+</div>
+</div>
+
+
+
 </main>
 
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/plugins/chartjs.min.js"></script>
