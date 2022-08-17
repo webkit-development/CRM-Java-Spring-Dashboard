@@ -1,4 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="${pageContext.request.contextPath}/resources/img/apple-icon.png">
   <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png">
-	<title>Java Spring Customer Relationship Dashboard</title>
+	<title>Add Customer Form</title>
 	<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/soft-ui-dashboard.min.css"/>
 	<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/app.css"/>
 	<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/nucleo-icons.css"/>
@@ -209,108 +211,60 @@
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-   <div class="container">
-   		<div class="row">
-    		<div class="col-md-12 mt-5">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-8 offset-md-2 mt-5 mb-5">
     			<div class="card">
-    				<div class="p-5">
-    					<a href="add-customer" class="btn bg-gradient-success"><i class="fas fa-user-plus"></i> Add New Customer</a>
-    					
-    					<h3 class="card-title text-center">Customers</h3>
-    				</div>
+    				<h3 class="card-title text-center p-3">Add New Customer</h3>
     				<div class="card-body">
-  						<div class="table-responsive">
-    						<table class="table align-items-center mb-0">
-      <thead>
-        <tr>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Name</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Username</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Email</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Phone</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Company</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Title</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        
-        <c:forEach var="customer" items="${customers}">
-        <tr>
-        
-        <td class="text-center text-xs font-weight-bold"> ${customer.name} </td>
-        <td class="text-center text-xs font-weight-bold"> ${customer.username} </td>
-        <td class="text-center text-xs font-weight-bold"> ${customer.email} </td>
-        <td class="text-center text-xs font-weight-bold"> ${customer.phoneNumber} </td>
-        <td class="text-center text-xs font-weight-bold"> ${customer.company} </td>
-        <td class="text-center text-xs font-weight-bold"> ${customer.title} </td>
-        
-          <td class="text-center">
-            <a href="" class="btn bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
-              <i class="fas fa-pen-square"></i>
-            </a>
-            
-            <a href="" class="btn bg-gradient-danger text-white" data-toggle="tooltip" data-original-title="Delete user">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td> 
-        </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
-</div>    
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 mt-5 mb-5">
-
-
-  <div class="card">
-  <div class="p-5">
-  <a href="add-user" class="btn bg-gradient-info"><i class="fas fa-user-plus"></i> Add New User</a>
-  <h3 class="card-title text-center">Users</h3>
-  </div>
-  <div class="card-body">
-  <div class="table-responsive">
-    <table class="table align-items-center mb-0">
-      <thead>
-        <tr>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Username</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Email</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Password</th>
-          <th class="text-center text-uppercase text-xs font-weight-bold">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <c:forEach var="user" items="${users}">
-        <tr>
-          	<td class="text-center text-xs font-weight-bold"> ${user.username} </td>
-        	<td class="text-center text-xs font-weight-bold"> ${user.email} </td>
-        	<td class="text-center text-xs font-weight-bold"> ${user.password} </td>
-          <td class="text-center">
-            <a href="" class="btn bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
-              <i class="fas fa-pen-square"></i>
-            </a>
-            <a href="" class="btn bg-gradient-danger text-white" data-toggle="tooltip" data-original-title="Delete user">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td>
-        </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
-</div> 
-</div>  
-</div>
-</div>
-</div>
-</main>
-	<footer>
-
-	</footer>		
+    					<form:form action="saveCustomer" modelAttribute="customer" method="POST">
+    					
+    						<div class="form-group">
+    							<label>Name</label>
+    							<form:input path="name" class="form-control"/>
+    						</div>
+    						
+    						<div class="form-group">
+    							<label>Username</label>
+    							<form:input path="username" class="form-control"/>
+    						</div>
+    						
+    						<div class="form-group">
+    							<label>Email</label>
+    							<form:input path="email" class="form-control"/>
+    						</div>
+    						
+    						<div class="form-group">
+    							<label>Phone</label>
+    							<form:input path="phoneNumber" class="form-control"/>
+    						</div>
+    						
+    						<div class="form-group">
+    							<label>Company</label>
+    							<form:input path="company" class="form-control"/>
+    						</div>
+    						
+    						<div class="form-group">
+    							<label>Title</label>
+    							<form:input path="title" class="form-control"/>
+    						</div>
+    						
+    						<input type="submit" value="Submit" class="btn bg-gradient-success"/>
+    					
+    					</form:form>
+    				</div>
+    				<div class="p3 mx-auto">
+    					<a href="${pageContext.request.contextPath}" class="btn bg-gradient-warning">Go Back</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    </main>
+    
+    
+ 
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/plugins/chartjs.min.js"></script>
   	<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/core/popper.min.js"></script>
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/core/bootstrap.min.js"></script>

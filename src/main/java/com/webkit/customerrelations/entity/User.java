@@ -1,7 +1,5 @@
 package com.webkit.customerrelations.entity;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,16 +20,13 @@ public class User {
 	private String email;
 	@Column(name="password")
 	private String password;
-	@Column(name="create_time")
-	private Date createdTime;
 	
 	public User() {}
 
-	public User(String username, String email, String password, Date createdTime) {
+	public User(String username, String email, String password) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.createdTime = createdTime;
 	}
 
 	public int getId() {
@@ -66,18 +61,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Date getCreatedTime() {
-		return createdTime;
-	}
-
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
-	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
-				+ ", createdTime=" + createdTime + "]";
+				+  "]";
 	}
 
 	

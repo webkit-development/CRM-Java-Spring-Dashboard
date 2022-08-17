@@ -1,6 +1,5 @@
 package com.webkit.customerrelations.entity;
 
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,22 +27,18 @@ public class Customer {
 	private String email;
 	@Column(name="title")
 	private String title;
-	@Column(name="created")
-	private Date created;
 	
 	
 	public Customer() {}
 
 
-	public Customer(String name, String company, String phoneNumber, String username, String email, String title,
-			Date created) {
+	public Customer(String name, String company, String phoneNumber, String username, String email, String title) {
 		this.name = name;
 		this.company = company;
 		this.phoneNumber = phoneNumber;
 		this.username = username;
 		this.email = email;
 		this.title = title;
-		this.created = created;
 	}
 
 
@@ -117,20 +112,10 @@ public class Customer {
 	}
 
 
-	public Date getCreated() {
-		return created;
-	}
-
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-
-
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + ", company=" + company + ", phoneNumber=" + phoneNumber
-				+ ", username=" + username + ", email=" + email + ", title=" + title + ", created=" + created + "]";
+				+ ", username=" + username + ", email=" + email + ", title=" + title + "]";
 	}
 
 
